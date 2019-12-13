@@ -2,7 +2,7 @@
 /*	
 	@name:                    stackoverflow questions viewer (SQV)
 	@filename:                sqv.php
-	@Online :				  http://www.svoptik.com/elahe/sqv.php
+	@Online :				  http://www.svoptik.com/elahe/sqv1.php
 	@version:                 1.0
 	@date:                    December 13, 2019
 	@author:                  Elahe Nourkami
