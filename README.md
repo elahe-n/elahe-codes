@@ -4,6 +4,9 @@ This is a PHP Script which helps people who are active users on "www.stackoverfl
 SQV(stackoverflow questions viewer) shows 10 newest Android-related questions and the 10 most voted Android-related questions posted in the past week on one page.
 In addition you can read the full information of the questions by clicking the titles.
 
+## Spacial Feature
+Showing votes' numbers and answers'numbers and also the summaries of the questions.
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
