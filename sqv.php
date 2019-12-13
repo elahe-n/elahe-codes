@@ -3,7 +3,7 @@
 	@name:                    stackoverflow questions viewer (SQV)
 	@filename:                sqv.php
 	@Online :				  http://www.svoptik.com/elahe/sqv1.php
-	@version:                 1.0
+	@version:                 1.2
 	@date:                    December 13, 2019
 	@author:                  Elahe Nourkami
 	@email:                   nourkami.e@gmail.com
@@ -53,56 +53,59 @@ In addition you can read the full information of the questions by clicking the t
         $header['content'] = $content;
         return $header;
     }
- 
-///set request time for 30 Sec
-$time_start = microtime(true);//1
-$timeout=false;
+    ///set request time to 30 Sec
+
+function load_url($url)
+{
+    $time_start = microtime(true);
+    $timeout=false;
     while(true){
-            ///Reload Again for Not show Robot Stackoverflow
-            $result = get_web_page("https://stackoverflow.com/search?tab=votes&q=%5bandroid%5d%20created%3a7d..%20is%3aquestion");//http://stackoverflow.com/search?q=%5Bandroid%5D+created%3A7d..+is%3Aquestion
-            $page = $result['content'];
-            $doc = new DOMDocument();
-            @$doc->loadHtml($page);
-            $xpath = new DOMXpath($doc);
-            $elements = $xpath->query("//div[@class='flush-left js-search-results']");
-            if ($elements->length > 0) {
-                break;
-            }
-           sleep(1);
-            if((microtime(true) - $time_start)==30){$timeout=true;break;}
+        ///Reload Again for Not showing Robot Stackoverflow
+        $result = get_web_page($url);
+        $page = $result['content'];
+        $doc = new DOMDocument();
+        @$doc->loadHtml($page);
+        $xpath = new DOMXpath($doc);
+        $elements = $xpath->query("//div[contains(@class,'flush-left')]");
+        if ($elements->length > 0) {
+            break;
+        }
+        sleep(1);
+        if((round(microtime(true) - $time_start))==30){$timeout=true;break;}
     }
 
-	 if(!$timeout){
- 
+    if(!$timeout){
 
-                 $sub = $xpath->query("//div[@class='question-summary search-result']", $elements->item(0));
-                 if($sub->length>10){$len = 10;}else{$len=$sub->length;}
-				  echo "<h2> Most voted </h2><br>";
-				 for($i = 0;$i<$len;$i++){
-                     $votes = $xpath->query(".//div[@class='vote']", $sub->item($i))->item(0)->nodeValue;
-                     $answeres = $xpath->query(".//div[contains(@class,'status')]", $sub->item($i))->item(0)->nodeValue;
-                    $title = $xpath->query(".//a[@class='question-hyperlink']", $sub->item($i))->item(0)->nodeValue;
-                    $excerpt = $xpath->query(".//div[@class='excerpt']", $sub->item($i))->item(0)->nodeValue;
+        echo "<div style='border:1px solid #000;width: 47%;float: left;'>";
+        $sub = $xpath->query("//div[contains(@class,'question-summary')]", $elements->item(0));
+         if($sub->length>10){$len = 10;}else{$len=$sub->length;}
+        for($i = 0;$i<$len;$i++){
 
-					 echo "<div style='display: inline-block'>";
-                         echo "<div style='float: left;width: 100px;'>";
-                                echo $votes ."<hr>" . $answeres;
-                         echo "</div>";
-                         echo "<div style='float: right;width: 700px;'>";
-                         echo $title ."<hr>" . $excerpt;
-                         echo "</div>";
-                     echo "</div>";
-                     echo "<br><hr>";
+            $votes = $xpath->query(".//div[@class='vote']", $sub->item($i))->item(0)->nodeValue;
+            $answeres = $xpath->query(".//div[contains(@class,'status')]", $sub->item($i))->item(0)->nodeValue;
+            $title = $xpath->query(".//a[@class='question-hyperlink']", $sub->item($i))->item(0)->nodeValue;
+            $excerpt = $xpath->query(".//div[@class='excerpt']", $sub->item($i))->item(0)->nodeValue;
+            echo "<div style='display: inline-block'>";
+            echo "<div style='float: left;width: 60px;padding: 15px;'>";
+            echo $votes ."<hr>" . $answeres;
+            echo "</div>";
+            echo "<div style='float: right;width: 500px;padding: 15px;'>";
+            $url = "https://stackoverflow.com".$xpath->query(".//a[@class='question-hyperlink']", $sub->item($i))->item(0)->getAttribute("href");
+            echo  "<a href='".$url."'>".$title."</a><hr>" . $excerpt;
+            echo "</div>";
+            echo "</div>";
+            echo "<br><hr>";
+        }
+        echo "</div>";
+    }else{
+        echo "stackoverflow robot has blocked You";
+    }
 
-
-
-                 }
-				 echo "<hr><hr><hr>";
-
-     }else{
-	     echo "stackoverflow Robot has blocked You";
-     }
-
+}
+echo "<div style='float: left;padding-left: 20%;'><h3>Most viewed</h3></div>";
+echo "<div style='float: right;padding-right: 20%;'><h3>newest</h3></div>" .'<br><br><br><br>';
+load_url("http://stackoverflow.com/search?q=%5Bandroid%5D+created%3A7d..+is%3Aquestion");
+load_url("https://stackoverflow.com/questions/tagged/android?tab=newest&pagesize=50");
 
 
 ?>
