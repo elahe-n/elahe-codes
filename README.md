@@ -23,7 +23,7 @@ Using the <B> Document Object Model(DOM) </B>, it begins to separate the specifi
 Finally, It shows the results in two separated simple div named <B> "Most voted" </B> and <B> "Newest" </B> .
 
 ## Spacial Feature
-Showing votes' numbers and answers'numbers and also the summaries of the questions.
+Showing votes' numbers and answers' numbers and also the summaries of the questions.
 
 ## Getting Started
 
