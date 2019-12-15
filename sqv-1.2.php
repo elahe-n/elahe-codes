@@ -102,8 +102,9 @@ function load_url($url)
     }
 
 }
-echo "<div style='float: left;padding-left: 20%;'><h3>Most viewed</h3></div>";
-echo "<div style='float: right;padding-right: 20%;'><h3>newest</h3></div>" .'<br><br><br><br>';
+echo "<div style='float: left;padding-left: 20%;'><h2>Android-related Questions in stackoverflow.com created in the past week</h2></div>" . '<br><br><br><br>';
+echo "<div style='float: left;padding-left: 20%;'><h3>Most voted</h3></div>";
+echo "<div style='float: right;padding-right: 25%;'><h3>Newest</h3></div>" .'<br><br><br><br>';
 load_url("http://stackoverflow.com/search?q=%5Bandroid%5D+created%3A7d..+is%3Aquestion");
 load_url("https://stackoverflow.com/questions/tagged/android?tab=newest&pagesize=50");
 
