@@ -28,7 +28,7 @@ Showing votes' numbers and answers' numbers and also the summaries of the questi
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
-You can use a web server solution such as XAMPP to run it on localhost or use a web host with PHP 5 or 7 which supports cURL library. 
+You can use a web server solution such as XAMPP or a web host with PHP 5 or 7 and supporting cURL library to run it on your localhost or a web host respectively. 
 ### Prerequisites
 A host(local or web) with PHP 5 or 7 which supports cURL library.
 example:
