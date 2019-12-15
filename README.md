@@ -3,7 +3,7 @@
 This is a PHP Script which helps people who are active users on "www.stackoverflow.com" and also interested in android. 
 SQV(stackoverflow questions viewer) shows 10 newest Android-related questions and the 10 most voted Android-related questions posted in the past week on one page.
 In addition you can read the full information of the questions by clicking the titles.
-    <P align="center"><img src="https://raw.githubusercontent.com/elahe-n/elahe-codes/master/sqv.JPG"></p>
+    <P align="center"><img src="https://raw.githubusercontent.com/elahe-n/elahe-codes/master/sqv1.JPG"></p>
 
 ## How it works
 SQV fetch the questions using cURL library. 
