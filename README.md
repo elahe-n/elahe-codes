@@ -3,7 +3,7 @@
 This is a PHP Script which helps people who are active users on "www.stackoverflow.com" and also interested in android. 
 SQV(stackoverflow questions viewer) shows 10 newest Android-related questions and the 10 most voted Android-related questions posted in the past week on one page.
 In addition you can read the full information of the questions by clicking the titles.
-    <P><img src="sqv.jpg" alt="SQV"></p>
+    <P align="center"><img src="https://raw.githubusercontent.com/elahe-n/elahe-codes/master/sqv.JPG"></p>
 
 ## How it works
 SQV fetch the questions using cURL library. 
@@ -11,14 +11,15 @@ Thanks to the advanced search engine of the stackoverflow website, the script ut
 ```
 https://stackoverflow.com/search?tab=votes&q=%5bandroid%5d%20created%3a7d..%20is%3aquestion
 ```
+
 You can see all of its search engine options here:
 ```
 https://stackoverflow.com/help/searching
 ```
-In <B>load_url</B> function it uses a while to bypass the security of the website. It strives for a maximum of 30 seconds to get the div which contains the search results.It shows "stackoverflow robot has blocked You" message if cannot bypass it.
-Using the Document Object Model(DOM), it begins to separate the specific contents which are needed to show after getting the results. it saves the title, number of answers, votes and the summary for each question using <B>DOMXpath</B>. 
-Finally, It shows the results in two separated simple div named "Most voted" and "Newest".
 
+In <B>load_url</B> function it uses a while to bypass the security of the website. It strives for a maximum of 30 seconds to get the div which contains the search results.It shows "stackoverflow robot has blocked You" message if cannot bypass it.
+Using the <B> Document Object Model(DOM) </B>, it begins to separate the specific contents which are needed to show after getting the results. it saves the title, number of answers, votes and the summary for each question using <B>DOMXpath</B>. 
+Finally, It shows the results in two separated simple div named <B> "Most voted" </B> and <B> "Newest" </B> .
 
 ## Spacial Feature
 Showing votes' numbers and answers'numbers and also the summaries of the questions.
