@@ -17,7 +17,8 @@ You can see all of its search engine options here:
 https://stackoverflow.com/help/searching
 ```
 
-In <B>load_url</B> function it uses a while to bypass the security of the website. It strives for a maximum of 30 seconds to get the div which contains the search results.It shows "stackoverflow robot has blocked You" message if cannot bypass it.
+In <B>load_url</B> function it uses a while to bypass the security of the website. It strives for a maximum of 30 seconds to get the div which contains the search results. It shows "stackoverflow robot has blocked You" message if cannot bypass it.
+
 Using the <B> Document Object Model(DOM) </B>, it begins to separate the specific contents which are needed to show after getting the results. it saves the title, number of answers, votes and the summary for each question using <B>DOMXpath</B>. 
 Finally, It shows the results in two separated simple div named <B> "Most voted" </B> and <B> "Newest" </B> .
 
