@@ -40,7 +40,7 @@ XAMPP
 
 just upload it on your host and open its link on your browser
 
-online:
+online sample:
 ```
 http://www.svoptik.com/elahe/sqv.php
 ```
